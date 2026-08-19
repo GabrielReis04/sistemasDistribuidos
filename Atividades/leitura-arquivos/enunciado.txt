@@ -1,0 +1,8 @@
+Construir um programa (em Java, C ou Python) que:
+a - leia o arquivo numeros.txt (contendo 10 números, um por linha) e carregue os valores em uma lista de inteiros
+b - leia o arquivo nomes.txt (contendo 15 nomes, um por linha) e carregue os valores em uma lista de strings
+c - imprima as duas listas resultantes
+
+Observação:
+  - Utilize threads para as tarefas de leitura/carregamento dos arquivos (avalie se não seriam necessários 2 métodos distintos)
+  - Utilize threads também para a tarefa de exibição das listas

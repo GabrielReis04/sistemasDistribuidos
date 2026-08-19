@@ -1,0 +1,4 @@
+Exercício 1 — Dividir para Conquistar: Soma de Sublistas
+Contexto: processamento de um grande volume de dados numéricos.
+Problema: a partir de uma lista com 10.000 números inteiros gerados aleatoriamente, repartir essa lista em 4 blocos de tamanho igual.
+Ação: criar 4 threads. Cada thread recebe apenas um dos blocos como parâmetro de entrada, calcula a soma dos elementos daquele bloco e devolve o valor obtido. Implementação seguindo o padrão MVC.
