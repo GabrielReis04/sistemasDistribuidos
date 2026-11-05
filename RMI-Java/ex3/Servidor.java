@@ -1,5 +1,7 @@
+import controller.SessaoController;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import remoto.TelefoniaRemota;
 
 public class Servidor {
 
@@ -8,10 +10,16 @@ public class Servidor {
     public static void main(String[] args) {
         String arquivo = (args.length > 0) ? args[0] : "telephony_sessions.txt";
         try {
+            SessaoController controller = new SessaoController();
+            String resposta = controller.carregarSessoes(arquivo);
+            if (!resposta.equals("")) {
+                System.out.println(resposta);
+                return;
+            }
+
             Registry registro = LocateRegistry.createRegistry(Registry.REGISTRY_PORT);
             System.out.println("Porta padrao do RMI Java..." + Registry.REGISTRY_PORT);
-            TelefoniaRemota servico = new TelefoniaRemota(arquivo);
-            registro.rebind(NOME_SERVICO, servico);
+            registro.rebind(NOME_SERVICO, new TelefoniaRemota(controller));
             System.out.println("Servidor pronto para atender clientes....");
         } catch (Exception erro) {
             System.out.println("Erro de conexão ou " + erro);
